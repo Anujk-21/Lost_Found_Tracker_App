@@ -1,5 +1,7 @@
+import os
 from pymongo import MongoClient
 
 def get_database():
-    client = MongoClient("mongodb://localhost:27017/")
+    mongo_uri = os.getenv("MONGODB_URI")
+    client = MongoClient(mongo_uri)
     return client["lost_found_db"]
